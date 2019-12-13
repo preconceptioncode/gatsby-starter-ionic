@@ -5,29 +5,34 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import {
+  IonApp,
+  IonContent,
+  IonFooter,
+  IonLabel,
+  IonPage,
+  IonToolbar,
+} from "@ionic/react"
+/* Core CSS required for Ionic components to work properly */
+import "@ionic/react/css/core.css"
+import "@ionic/react/css/display.css"
+import "@ionic/react/css/flex-utils.css"
+import "@ionic/react/css/float-elements.css"
+/* Basic CSS for apps built with Ionic */
+import "@ionic/react/css/normalize.css"
+/* Optional CSS utils that can be commented out */
+import "@ionic/react/css/padding.css"
+import "@ionic/react/css/structure.css"
+import "@ionic/react/css/text-alignment.css"
+import "@ionic/react/css/text-transformation.css"
+import "@ionic/react/css/typography.css"
+import { graphql, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import { IonApp, IonPage, IonContent, IonFooter, IonToolbar, IonTitle } from '@ionic/react'
-
+import React from "react"
+/* Theme variables */
+import "../theme/variables.css"
 import Header from "./header"
 import "./layout.css"
-
-/* Core CSS required for Ionic components to work properly */
-import '@ionic/react/css/core.css'
-
-/* Basic CSS for apps built with Ionic */
-import '@ionic/react/css/normalize.css'
-import '@ionic/react/css/structure.css'
-import '@ionic/react/css/typography.css'
-
-/* Optional CSS utils that can be commented out */
-import '@ionic/react/css/padding.css'
-import '@ionic/react/css/float-elements.css'
-import '@ionic/react/css/text-alignment.css'
-import '@ionic/react/css/text-transformation.css'
-import '@ionic/react/css/flex-utils.css'
-import '@ionic/react/css/display.css'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -47,13 +52,9 @@ const Layout = ({ children }) => {
         <IonContent className="ion-padding">
           <main>{children}</main>
         </IonContent>
-        <IonFooter>
+        <IonFooter className="ion-padding-start">
           <IonToolbar>
-            <IonTitle>
-              © {new Date().getFullYear()}, Built with
-              {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </IonTitle>
+            <IonLabel>© {new Date().getFullYear()}, PreConception</IonLabel>
           </IonToolbar>
         </IonFooter>
       </IonPage>
